@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
 const mongooseConnect = require("./config/mongooseConnect");
@@ -9,7 +8,6 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
-// app.use(bodyParser.json());
 app.use(cors());
 app.use("/", translationRouter);
 

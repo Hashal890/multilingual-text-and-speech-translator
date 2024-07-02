@@ -1,4 +1,4 @@
-# Image Analysis AI Assistant
+# Multilingual Text and Speech Translator
 
 This project is a MERN stack-based web application that enables users to translate text between multiple languages with ease. The application features a simple and clean UI for entering text, selecting source and target languages, and displaying the translated text. Optional features include automatic language detection, speech-to-text input, and text-to-speech output. The backend leverages Google Translate API for accurate translations, while MongoDB stores translation data for analysis. Designed for scalability and efficiency, this application can handle multiple concurrent translation requests and is deployable on scalable platforms like AWS and Google Cloud. Monitoring and testing strategies ensure robust performance and reliability.
 
