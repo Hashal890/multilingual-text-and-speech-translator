@@ -20,7 +20,7 @@ npm run dev
 ## Deployment
 
 - [Frontend](https://multilingual-text-and-speech-translator.vercel.app/)
-- [Backend](https://multilingual-text-and-speech-translator-backend.vercel.app/)
+- [Backend](https://multilingual-text-and-speech-translator.onrender.com)
 
 ## Technology Stack
 
