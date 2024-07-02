@@ -41,7 +41,7 @@ List of the technologies used in the project.
 
 **Home Page**
 
-![home-page](./src/assets/)
+![home-page](./screenshots/home-page.jpg)
 
 ## Connect with Me
 
