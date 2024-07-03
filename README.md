@@ -4,6 +4,10 @@ This project is a MERN stack-based web application that enables users to transla
 
 ## Getting Started
 
+```bash
+git clone https://github.com/Hashal890/multilingual-text-and-speech-translator.git
+cd multilingual-text-and-speech-translator
+```
 **Frontend:**
 ```bash
 cd frontend
@@ -39,9 +43,11 @@ List of the technologies used in the project.
 
 ## Screenshots
 
-**Home Page**
+**Home Page Loading**
+![home-page](./screenshots/home-page-loading.jpg)
 
-![home-page](./screenshots/home-page.jpg)
+**Home Page Result**
+![home-page](./screenshots/home-page-result.jpg)
 
 ## Connect with Me
 
