@@ -7,12 +7,12 @@ import {
   Select,
   Textarea,
   Text,
+  Spinner,
 } from "@chakra-ui/react";
 import axios from "axios";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
-import { useSpeechSynthesis } from "react-speech-kit";
 import { HiSpeakerWave } from "react-icons/hi2";
 import { FaStopCircle } from "react-icons/fa";
 import LanguagesSelect from "./components/LanguagesSelect";
@@ -22,13 +22,13 @@ const App = () => {
   const [translatedText, setTranslatedText] = useState("");
   const [sourceLang, setSourceLang] = useState("en");
   const [targetLang, setTargetLang] = useState("es");
+  const [isLoading, setIsLoading] = useState(false);
   const {
     transcript,
     listening,
     browserSupportsSpeechRecognition,
     resetTranscript,
   } = useSpeechRecognition();
-  const { speak, voices } = useSpeechSynthesis();
 
   useEffect(() => {
     if (transcript) {
@@ -37,6 +37,7 @@ const App = () => {
   }, [transcript]);
 
   const handleTranslate = async () => {
+    setIsLoading(true);
     try {
       const response = await axios.post(
         "https://multilingual-text-and-speech-translator.onrender.com/translate-text",
@@ -49,6 +50,8 @@ const App = () => {
       setTranslatedText(response.data.translatedText);
     } catch (error) {
       console.error("Translation error:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -62,8 +65,13 @@ const App = () => {
   };
 
   const handleTextToSpeech = () => {
-    const voice = voices.find((voice) => voice.lang.startsWith(targetLang));
-    speak({ text: translatedText, voice });
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(translatedText);
+      utterance.lang = targetLang;
+      speechSynthesis.speak(utterance);
+    } else {
+      console.error('Speech synthesis not supported');
+    }
   };
 
   if (!browserSupportsSpeechRecognition) {
@@ -105,7 +113,14 @@ const App = () => {
           w={{ base: "100%", md: "48%" }}
           colorScheme="linkedin"
         >
-          Translate
+          {isLoading ? (
+            <HStack spacing={2}>
+              <Spinner size="sm" />
+              <span>Translating...</span>
+            </HStack>
+          ) : (
+            "Translate"
+          )}
         </Button>
         <Text>Translated Text:</Text>
         <Textarea value={translatedText} readOnly size="sm" resize="vertical" />

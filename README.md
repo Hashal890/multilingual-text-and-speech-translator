@@ -30,7 +30,7 @@ List of the technologies used in the project.
 - [Express.js](https://expressjs.com/)
 - [React.js](https://legacy.reactjs.org/docs/getting-started.html)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [Google Translate Api](https://www.npmjs.com/package/google-translate-api)
+- [React Speech Recognition](https://www.npmjs.com/package/react-speech-recognition)
 - [Axios](https://axios-http.com/docs/intro)
 - [Dotenv](https://www.npmjs.com/package/dotenv)
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
